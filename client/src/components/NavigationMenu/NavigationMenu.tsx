@@ -12,10 +12,10 @@ const NavigationMenu = ({...props}: NavigationMenuProps): JSX.Element => {
   return (
     <nav className="w-full p-3 bg-black text-white flex justify-center uppercase">
       <span className='inline-block mr-5'>
-        <Link href="/" className={isActive('/')}>Home</Link>
+        <Link href="/" className={isActive('/')}>Главная</Link>
       </span>
       <span>
-        <Link href="/notes" className={isActive('/notes')}>Notes</Link>
+        <Link href="/notes" className={isActive('/notes')}>Заметки</Link>
       </span>
     </nav>
   )

@@ -13,7 +13,7 @@ export class NotesController {
   getAllNotes = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const notes = await this.notesService.getAllNotes();
-      res.status(200).json({ notes });
+      res.status(200).json(notes);
     } catch (error) {
       next(error);
     }
