@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { fetchNotes } from '@/services/api';
 import { NoteDocument } from '@/types/Note';
+import { withLayout } from '@/layouts/Layout';
 
 const Notes: React.FC = () => {
   const [notes, setNotes] = useState<NoteDocument[] | [] | undefined>([])
@@ -24,7 +25,7 @@ const Notes: React.FC = () => {
     getNotes()
   }, [])
   return (
-    <div className="text-center mt-20">
+    <div className="text-center mt-4">
       <h1 className="text-3xl mb-4">Notes</h1>
       {loadingNotes && <div>Loading....</div>}
       {notes &&  <Link className="text-blue-500" href="/note/1">
@@ -35,4 +36,4 @@ const Notes: React.FC = () => {
   );
 };
 
-export default Notes;
+export default withLayout(Notes);

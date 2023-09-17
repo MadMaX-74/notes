@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 * {
     box-sizing: border-box;
 }
@@ -7,7 +10,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: var(--font-family);
-    color: var(--white);
+    color: var(--black);
     background-color: var(--background-color);
 }
 
@@ -23,9 +26,13 @@ a {
     --white: #fff;
     --primary: #7653FC;
     --primary-hover: #6344df;
-    --background-color: #000000;
+    --background-color: #F9F8FF;
     --red: #FC836D;
     --green: #1DC37E;
     --green-light: #C8F8E4;
     --font-family: 'Noto Sans', sans-serif;
+}
+
+.active {
+    color: var(--primary-hover);
 }
