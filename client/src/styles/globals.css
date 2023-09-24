@@ -36,3 +36,37 @@ a {
 .active {
     color: var(--primary-hover);
 }
+
+.btn {
+    padding: 5px 8px;
+    border: 1px solid var(--primary);
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+}
+
+.common-btn {
+    background-color: var(--primary);
+    color: #fff;
+}
+
+.common-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.outline-btn {
+    background-color: var(--white);
+    color: var(--primary);
+}
+
+.outline-btn:hover {
+    background-color: var(--primary-hover);
+    color: var(--white);
+}

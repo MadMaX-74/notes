@@ -19,8 +19,8 @@ export const fetchNotes = async () => {
 
 export const createNote = async (note: NoteDocument) => {
   try {
-    const newData = { title: note.title, content: 'note.content' };
-    const data: NoteDocument = await fetcher('/api/notes/create', 'POST', newData);
+    const newData = { title: note.title, content: note.content };
+    const data: NoteDocument = await fetcher(`${URL}/api/notes/create`, 'POST', newData);
     console.log('Note created:', data);
     return data;
   } catch (error) {
