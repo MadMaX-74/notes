@@ -1,0 +1,23 @@
+.note_card {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid var(--black);
+    padding: 10px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+.note_card__content {
+    max-width: 70%;
+}
+
+.note_card__text {
+    display: block;
+    text-wrap: wrap;
+    word-break: break-all;
+}

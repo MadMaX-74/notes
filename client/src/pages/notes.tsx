@@ -1,14 +1,19 @@
-import React from 'react';
-import Link from 'next/link';
+import React, { useContext } from 'react';
 import { withLayout } from '@/layouts/Layout';
+import { AppContext } from '@/context/app.context';
+import { NoteDocument } from '@/types/Note';
+import NoteCard from '@/components/NoteCard/NoteCard';
 
 const Notes: React.FC = () => {
+  const { notes, loading, error } = useContext(AppContext);
   return (
-    <div className="text-center mt-4">
-      <h1 className="text-3xl mb-4">Notes</h1>
-      <Link className="text-blue-500" href="/note/1">
-          View Note
-      </Link>
+    <div className="block container mx-auto mt-4">
+      {loading && <div><span>Загрузка...</span></div>}
+      <h1 className="text-3xl text-center mb-4">Заметки</h1>
+      {notes && notes.map((note: NoteDocument) => (
+        <NoteCard key={note.id} title={note.title} text={note.content} />
+      ))}
+      {error && <div className="text-lg text-red-800"><span>{error}</span></div>}
     </div>
   );
 };

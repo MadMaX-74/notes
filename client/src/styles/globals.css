@@ -70,3 +70,15 @@ a {
     background-color: var(--primary-hover);
     color: var(--white);
 }
+
+.edit-btn {
+    border-color: #1DC37E;
+    background-color: var(--green);
+    color: var(--white);
+}
+
+.delete-btn {
+    border-color: var(--red);
+    background-color: var(--red);
+    color: var(--white);
+}
