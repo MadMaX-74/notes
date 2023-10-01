@@ -4,4 +4,5 @@ export interface NoteCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivE
     id:string
     title: string
     text: string
+    deletingId: (id: string) => void;
 }

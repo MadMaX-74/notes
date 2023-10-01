@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import style from '@/styles/NoteCard.module.css'
 import { NoteCardProps } from './NoteCardProps.props';
-import { deleteNote, getNoteById } from '@/services/api';
+import { getNoteById } from '@/services/api';
 
-function NoteCard({id, title, text}: NoteCardProps): JSX.Element {
-  const handleDeleteNote = async () => {
+function NoteCard({id, title, deletingId, text}: NoteCardProps): JSX.Element {
+  const handleDeleteNote = () => {
     try {
-      await deleteNote(id)
+      deletingId(id)
     } catch (e) {
       console.error('Cant delete note ' + title, e)
     }

@@ -49,11 +49,7 @@ export class NotesController {
   deleteNoteById = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { id } = req.params;
-      const deletedNote = await this.notesService.deletedNote(id);
-
-      if (!deletedNote) {
-        return res.status(404).json({ message: 'Note not found' });
-      }
+      await this.notesService.deletedNote(id);
 
       res.status(204).json({message: `Note sucessfuly deleted`});
     } catch (error) {

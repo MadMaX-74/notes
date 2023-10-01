@@ -23,8 +23,7 @@ export class NotesService {
     return note;
   }
   deletedNote = async (id: string) => {
-    const delNote = await Note.findByIdAndDelete(id);
-    return delNote;
+    await Note.findByIdAndDelete(id);
   }
   // метод изменения заметки по ID
   updateNoteById = async (upd: NoteDocument): Promise<NoteDocument | null> => {

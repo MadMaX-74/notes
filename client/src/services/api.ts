@@ -36,7 +36,7 @@ export const getNoteById = async (id: string) => {
     console.error('Error deleting note:', error);
   }
 };
-export const deleteNote = async (id: string) => {
+export const deleteNoteById = async (id: string) => {
   try {
     const data: NoteDocument = await fetcher(`${URL}/api/notes/delete/${id}`, 'DELETE');
     console.log('Note deleted:', data);
