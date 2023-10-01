@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import style from '@/styles/NoteCard.module.css'
 import { NoteCardProps } from './NoteCardProps.props';
 import { getNoteById } from '@/services/api';
+import Link from 'next/link';
 
 function NoteCard({id, title, deletingId, text}: NoteCardProps): JSX.Element {
   const handleDeleteNote = () => {
@@ -17,7 +18,7 @@ function NoteCard({id, title, deletingId, text}: NoteCardProps): JSX.Element {
         <h3><b>Название:</b>{title}</h3>
         <p className={style.note_card__text}><b>Заметка:</b>{text}</p></div>
       <div className={style.note_card__actions}>
-        <button className="btn edit-btn" onClick={async () => await getNoteById(id) }>Изменить</button>
+        <Link href="/note/[id]" as={`/note/${id}`} passHref className="btn edit-btn">Изменить</Link>
         <button className="btn delete-btn ml-2" onClick={handleDeleteNote}>Удалить</button>
       </div>
     </div>
