@@ -8,7 +8,7 @@ const fetcher = async (url: string, method: string = 'GET', data?: any) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      data: data ? JSON.stringify(data) : null,
+      data: data ? JSON.stringify(data) : {},
     };
     const response: any = await axios(config);
 

@@ -1,5 +1,5 @@
 export interface NoteDocument {
-    id?: string;
+    _id?: string;
     title: string;
     content: string;
 }

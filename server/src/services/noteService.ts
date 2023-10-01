@@ -1,10 +1,6 @@
 import Note, { NoteDocument }  from '../models/Note';
 
 export class NotesService {
-    //генерация id
-    generateUniqueId(): string {
-        return new Date().getTime().toString(36);
-      }
   // Метод для получения всех заметок
   getAllNotes = async (): Promise<NoteDocument[]> => {
     const notes = await Note.find({});
@@ -13,9 +9,7 @@ export class NotesService {
 
   // Метод для создания новой заметки
   createNote = async (title: string, content: string): Promise<NoteDocument> => {
-    const id = this.generateUniqueId();
     const newNote = new Note({
-        id,
         title,
         content,
       });
@@ -28,9 +22,13 @@ export class NotesService {
     const note = await Note.findById(id);
     return note;
   }
-  // метод удаления заметки по ID
-  async deleteNoteById(id: string): Promise<NoteDocument | null> {
-    const deletedNote = await Note.findByIdAndDelete(id);
-      return deletedNote;
+  deletedNote = async (id: string) => {
+    const delNote = await Note.findByIdAndDelete(id);
+    return delNote;
+  }
+  // метод изменения заметки по ID
+  updateNoteById = async (upd: NoteDocument): Promise<NoteDocument | null> => {
+    const updateNote = await Note.findByIdAndUpdate(upd._id, upd)
+    return updateNote;
   }
 }

@@ -27,4 +27,22 @@ export const createNote = async (note: NoteDocument) => {
     console.error('Error creating note:', error);
   }
 };
+export const getNoteById = async (id: string) => {
+  try {
+    const data: NoteDocument = await fetcher(`${URL}/api/notes/get/${id}`, 'GET');
+    console.log('Note deleted:', data);
+    return data;
+  } catch (error) {
+    console.error('Error deleting note:', error);
+  }
+};
+export const deleteNote = async (id: string) => {
+  try {
+    const data: NoteDocument = await fetcher(`${URL}/api/notes/delete/${id}`, 'DELETE');
+    console.log('Note deleted:', data);
+    return data;
+  } catch (error) {
+    console.error('Error deleting note:', error);
+  }
+};
 
