@@ -4,6 +4,7 @@ import { AppContext } from '@/context/app.context';
 import { NoteDocument } from '@/types/Note';
 import NoteCard from '@/components/NoteCard/NoteCard';
 import ConfirmModal from '@/components/ConfirmModal/ConfirmModal';
+import { log } from 'console';
 
 const Notes: React.FC = () => {
   const { notes, loading, error } = useContext(AppContext);
@@ -19,9 +20,9 @@ const Notes: React.FC = () => {
     setConfirmModal(true)
   }
   const updateNotesList = (id: string) => {
-    const newNotesList = notes.filter((note :NoteDocument) => note._id !== id)
-    setNotesList( prev => newNotesList)
+    setNotesList(prevNotes => prevNotes.filter(note => note._id !== id));
     setConfirmModal(false)
+    setDelId('')
   }
   return (
     <div className="block container mx-auto mt-4 relative">

@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import style from '@/styles/NoteCard.module.css'
 import { NoteCardProps } from './NoteCardProps.props';
-import { getNoteById } from '@/services/api';
 import Link from 'next/link';
 
 function NoteCard({id, title, deletingId, text}: NoteCardProps): JSX.Element {

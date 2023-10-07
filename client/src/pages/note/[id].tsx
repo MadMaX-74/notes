@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { NoteDocument } from '@/types/Note';
 import { getNoteById, updateNote } from '@/services/api';
 import styles from '@/styles/Note.module.css'
+import Link from 'next/link';
 
 
 const Note: React.FC = ({...props}): JSX.Element => {
@@ -45,6 +46,9 @@ const Note: React.FC = ({...props}): JSX.Element => {
   return (
     <div className={styles.note} {...props}>
       {note && <div className={styles.note_content}>
+        <span className={styles.link}>
+          <Link href='/notes'>Назад</Link>
+        </span>
         {error && <div className="error-block">Update note error</div>}
         <span>Заголовок:</span>
         <input className={styles.input}
