@@ -1,10 +1,12 @@
 import React, { useEffect, useId, useState } from 'react';
 import { useRouter } from 'next/router';
 import { NoteDocument } from '@/types/Note';
-import { getNoteById } from '@/services/api';
+import { getNoteById, updateNote } from '@/services/api';
 import styles from '@/styles/Note.module.css'
 
+
 const Note: React.FC = ({...props}): JSX.Element => {
+  const [error, setError] = useState<boolean>(false)
   const [note, setNote] = useState<NoteDocument>({
     title: '',
     content: ''
@@ -25,10 +27,25 @@ const Note: React.FC = ({...props}): JSX.Element => {
       console.error(e)
     }
   }
+  const editNote = async () => {
+    setError(false)
+    const resp = await updateNote(note)
+    if (!resp) {
+      setError(true)
+      setNote({
+        title: '',
+        content: ''
+      })
+    } else {
+      router.push('/notes')
+    }
+
+  }
 
   return (
     <div className={styles.note} {...props}>
       {note && <div className={styles.note_content}>
+        {error && <div className="error-block">Update note error</div>}
         <span>Заголовок:</span>
         <input className={styles.input}
           type='text' value={note?.title || ''}
@@ -40,7 +57,7 @@ const Note: React.FC = ({...props}): JSX.Element => {
           maxLength={250}
           value={note?.content || ''}
           onChange={(e) => setNote(prevValue => ({ ...prevValue, content: e.target.value }))}></textarea>
-        <button className='btn common-btn' onClick={() => console.log(note)}>Сохранить</button>
+        <button className='btn common-btn' onClick={editNote}>Сохранить</button>
       </div>}
       {!note && <div>No Data</div>}
     </div>

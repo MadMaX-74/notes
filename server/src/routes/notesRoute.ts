@@ -9,6 +9,6 @@ router.get('/list', notesController.getAllNotes);
 router.post('/create', notesController.createNote);
 router.get('/get/:id', notesController.getNoteById);
 router.delete('/delete/:id', notesController.deleteNoteById);
-router.patch('/update/:id', notesController.updateNoteById);
+router.patch('/update', notesController.updateNoteById);
 
 export default router;

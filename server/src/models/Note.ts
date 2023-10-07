@@ -1,7 +1,6 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
 export interface NoteDocument extends Document {
-  _id?: string;
   title: string;
   content: string;
 }

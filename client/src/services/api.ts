@@ -45,4 +45,14 @@ export const deleteNoteById = async (id: string) => {
     console.error('Error deleting note:', error);
   }
 };
+export const updateNote = async (note: NoteDocument) => {
+  try {
+    const updData = { id:note._id, title: note.title, content: note.content };
+    const data: NoteDocument = await fetcher(`${URL}/api/notes/update`, 'PATCH', updData);
+    console.log('Note updated:', data);
+    return data;
+  } catch (error) {
+    console.error('Error update note:', error);
+  }
+};
 

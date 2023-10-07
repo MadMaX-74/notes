@@ -13,6 +13,7 @@ export class NotesService {
         title,
         content,
       });
+      newNote._id = undefined;
     await newNote.save();
     return newNote;
   }
@@ -27,7 +28,7 @@ export class NotesService {
   }
   // метод изменения заметки по ID
   updateNoteById = async (upd: NoteDocument): Promise<NoteDocument | null> => {
-    const updateNote = await Note.findByIdAndUpdate(upd._id, upd)
+    const updateNote = await Note.findByIdAndUpdate(upd.id, upd)
     return updateNote;
   }
 }
