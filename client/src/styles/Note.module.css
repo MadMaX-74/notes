@@ -1,0 +1,26 @@
+.note {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding: 20px;
+}
+.note_content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.note_content input, .note_content textarea {
+    padding: 10px 5px;
+    border: 1px solid var(--black);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+.note_content textarea {
+    min-height: 300px;
+    max-height: 400px;
+    resize: none;
+}
