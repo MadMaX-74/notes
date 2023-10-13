@@ -41,7 +41,6 @@ const Home = (): JSX.Element => {
         </div>
         {showCreateModal && <CreateModal closeModal={closeCreateModal} updateCounter={updateCounter} />}
       </div>}
-      {error && <div className="text-lg text-red-800"><span>{error}</span></div>}
     </>
   );
 };
