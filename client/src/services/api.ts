@@ -1,7 +1,7 @@
 import fetcher from '../utils/fetcher';
 import {NoteDocument} from '@/types/Note'
 
-const URL = 'http://77.232.135.159:8080'
+const URL = 'http://localhost:8080'
 
 export const fetchNotes = async () => {
   try {
